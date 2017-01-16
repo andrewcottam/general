@@ -19,8 +19,8 @@
 #!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
 #!   REQUIREMENTS=""
 #!   WARN_INVALID_XFORM_PARAM="Yes"
-#!   VIEW_POSITION="-115.626 1775.02"
-#!   LAST_SAVE_DATE="2017-01-16T10:54:04"
+#!   VIEW_POSITION="-103.126 1865.64"
+#!   LAST_SAVE_DATE="2017-01-16T11:55:38"
 #!   LAST_SAVE_BUILD="FME(R) 2016.1.0.0 (20160419 - Build 16492 - WIN64)"
 #!   WORKSPACE_VERSION="1"
 #!   PASSWORD=""
@@ -33,7 +33,7 @@
 #!   PYTHON_COMPATIBILITY="27"
 #!   SHOW_ANNOTATIONS="true"
 #!   EXPLICIT_BOOKMARK_ORDER="false"
-#!   FME_DOCUMENT_GUID="c5db3db6-a53a-4462-8712-740ed0644a2a"
+#!   FME_DOCUMENT_GUID="5ebb6209-357e-4f96-9e64-a9c7969f5a58"
 #!   END_TCL=""
 #!   HISTORY=""
 #!   MAX_LOG_FEATURES="200"
@@ -49,7 +49,7 @@
 #!   FME_BUILD_NUM="16492"
 #!   REQUIREMENTS_KEYWORD=""
 #!   END_PYTHON=""
-#!   FME_DOCUMENT_PRIORGUID="001b27ea-fa62-4612-a2d1-7a174e9a5d8d"
+#!   FME_DOCUMENT_PRIORGUID="001b27ea-fa62-4612-a2d1-7a174e9a5d8d,c5db3db6-a53a-4462-8712-740ed0644a2a,7c08cfcc-2b49-45a2-9985-9e96de5f8390"
 #!   SHOW_INFO_NODES="true"
 #!   BEGIN_TCL=""
 #!   CATEGORY=""
@@ -751,12 +751,11 @@
 #!     <FEAT_ATTRIBUTE ATTR_NAME="label" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="Geo_X" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="Geo_Y" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
-#!     <FEAT_ATTRIBUTE ATTR_NAME="Year1" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
-#!     <FEAT_ATTRIBUTE ATTR_NAME="Year2" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
-#!     <FEAT_ATTRIBUTE ATTR_NAME="Year3" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
-#!     <FEAT_ATTRIBUTE ATTR_NAME="FirstDate" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
-#!     <FEAT_ATTRIBUTE ATTR_NAME="LastDate" ATTR_TYPE="number" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
-#!     <FEAT_ATTRIBUTE ATTR_NAME="_uuid" ATTR_TYPE="text" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="Year1" ATTR_TYPE="text" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="Year2" ATTR_TYPE="text" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="Year3" ATTR_TYPE="text" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="FirstDate" ATTR_TYPE="text" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="LastDate" ATTR_TYPE="text" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="googlefusiontables_advanced_group" PARM_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="googlefusiontables_mode" PARM_VALUE="INHERIT_FROM_WRITER"/>
 #!     <DEFLINE_PARM PARM_NAME="googlefusiontables_update_key_columns" PARM_VALUE=""/>
@@ -873,35 +872,6 @@
 #!     <XFORM_PARM PARM_NAME="PARAMETER_GROUP" PARM_VALUE=""/>
 #!     <XFORM_PARM PARM_NAME="XVAL" PARM_VALUE="@Value(Geo_X)"/>
 #! </TRANSFORMER>
-#! <TRANSFORMER
-#!   IDENTIFIER="10"
-#!   TYPE="UUIDGenerator"
-#!   VERSION="0"
-#!   POSITION="2015.62 1293.76"
-#!   BOUNDING_RECT="2015.62 1293.76 -1 -1"
-#!   ORDER="5e+14"
-#!   PARMS_EDITED="false"
-#!   ENABLED="true"
-#!   LAST_PARM_EDIT="16492"
-#! >
-#!     <OUTPUT_FEAT NAME="OUTPUT"/>
-#!     <FEAT_COLLAPSED COLLAPSED="0"/>
-#!     <XFORM_ATTR ATTR_NAME="system:index" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="Id" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="label" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="Geo_X" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="Geo_Y" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="Year1" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="Year2" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="Year3" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="FirstDate" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="LastDate" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_ATTR ATTR_NAME="_uuid" IS_USER_CREATED="false" FEAT_INDEX="0" />
-#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
-#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
-#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="UUIDGenerator"/>
-#!     <XFORM_PARM PARM_NAME="UUID_ATTR" PARM_VALUE="_uuid"/>
-#! </TRANSFORMER>
 #! </TRANSFORMERS>
 #! <FEAT_LINKS>
 #! <FEAT_LINK
@@ -916,19 +886,8 @@
 #!   EXTRA_POINTS=""
 #! />
 #! <FEAT_LINK
-#!   IDENTIFIER="12"
+#!   IDENTIFIER="13"
 #!   SOURCE_NODE="7"
-#!   TARGET_NODE="10"
-#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
-#!   TARGET_PORT_DESC="fi 0 "
-#!   ENABLED="true"
-#!   EXECUTION_IDX="0"
-#!   HIDDEN="false"
-#!   EXTRA_POINTS=""
-#! />
-#! <FEAT_LINK
-#!   IDENTIFIER="11"
-#!   SOURCE_NODE="10"
 #!   TARGET_NODE="2"
 #!   SOURCE_PORT_DESC="fo 0 OUTPUT"
 #!   TARGET_PORT_DESC="-1"
@@ -1181,14 +1140,10 @@ FACTORY_DEF * VertexCreatorFactory    FACTORY_NAME VertexCreator    INPUT  FEATU
 
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME UUIDGenerator    INPUT  FEATURE_TYPE VertexCreator_OUTPUT    OUTPUT FEATURE_TYPE UUIDGenerator_OUTPUT         "_uuid" @UUID()
-
-# -------------------------------------------------------------------------
-
-FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC UUIDGenerator_OUTPUT TO GOOGLEFUSIONTABLES __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>roadless_asia_validation_points<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC VertexCreator_OUTPUT TO GOOGLEFUSIONTABLES __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>roadless_asia_validation_points<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
 # -------------------------------------------------------------------------
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
 
 # -------------------------------------------------------------------------
-GOOGLEFUSIONTABLES_1_DEF roadless_asia_validation_points   googlefusiontables_type      All   googlefusiontables_drop_table Yes   googlefusiontables_truncate_table No   googlefusiontables_geometry_columns geom   googlefusiontables_mode      INHERIT_FROM_WRITER   googlefusiontables_update_key_columns ""   Id                           number   label                        number   Geo_X                        number   Geo_Y                        number   Year1                        number   Year2                        number   Year3                        number   FirstDate                    number   LastDate                     number   _uuid                        text
+GOOGLEFUSIONTABLES_1_DEF roadless_asia_validation_points   googlefusiontables_type      All   googlefusiontables_drop_table Yes   googlefusiontables_truncate_table No   googlefusiontables_geometry_columns geom   googlefusiontables_mode      INHERIT_FROM_WRITER   googlefusiontables_update_key_columns ""   Id                           number   label                        number   Geo_X                        number   Geo_Y                        number   Year1                        text   Year2                        text   Year3                        text   FirstDate                    text   LastDate                     text
