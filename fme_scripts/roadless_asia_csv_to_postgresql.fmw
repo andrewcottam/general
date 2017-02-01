@@ -21,7 +21,7 @@
 #!   REQUIREMENTS=""
 #!   WARN_INVALID_XFORM_PARAM="Yes"
 #!   VIEW_POSITION="-100.001 100.001"
-#!   LAST_SAVE_DATE="2017-01-16T12:40:38"
+#!   LAST_SAVE_DATE="2017-01-16T13:39:49"
 #!   LAST_SAVE_BUILD="FME(R) 2016.1.0.0 (20160419 - Build 16492 - WIN64)"
 #!   WORKSPACE_VERSION="1"
 #!   PASSWORD=""
@@ -804,7 +804,7 @@
 #!   ENABLED="true"
 #!   SCHEMA_ATTRIBUTE_SOURCE="1"
 #! >
-#!     <FEAT_ATTRIBUTE ATTR_NAME="system:index" ATTR_TYPE="int4" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="fid_" ATTR_TYPE="int4" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="firstdate" ATTR_TYPE="int4" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="geo_x" ATTR_TYPE="numeric(7,3)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="geo_y" ATTR_TYPE="numeric(6,3)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
@@ -823,11 +823,11 @@
 #!     <FEAT_ATTRIBUTE ATTR_NAME="minval_sceneid" ATTR_TYPE="varchar(42)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="fme_configuration_group" PARM_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="postgres_create_with_oids" PARM_VALUE="NO"/>
-#!     <DEFLINE_PARM PARM_NAME="fme_advanced_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="fme_advanced_group" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
 #!     <DEFLINE_PARM PARM_NAME="fme_selection_group" PARM_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="fme_table_creation_group" PARM_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="fme_feature_operation" PARM_VALUE="INSERT"/>
-#!     <DEFLINE_PARM PARM_NAME="postgres_vacuum_analyze" PARM_VALUE="NO"/>
+#!     <DEFLINE_PARM PARM_NAME="postgres_vacuum_analyze" PARM_VALUE="YES"/>
 #!     <DEFLINE_PARM PARM_NAME="fme_where_builder_clause" PARM_VALUE="&lt;Unused&gt;"/>
 #!     <DEFLINE_PARM PARM_NAME="fme_selection_method" PARM_VALUE="&lt;Unused&gt;"/>
 #!     <DEFLINE_PARM PARM_NAME="fme_configuration_common_group" PARM_VALUE=""/>
@@ -941,6 +941,13 @@
 #!   TARGET_PORT_DESC="1"
 #! />
 #! <ATTR_LINK
+#!   IDENTIFIER="1179651"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! <ATTR_LINK
 #!   IDENTIFIER="458755"
 #!   SOURCE_NODE="1"
 #!   TARGET_NODE="2"
@@ -1030,13 +1037,6 @@
 #!   TARGET_NODE="2"
 #!   SOURCE_PORT_DESC="9"
 #!   TARGET_PORT_DESC="9"
-#! />
-#! <ATTR_LINK
-#!   IDENTIFIER="851971"
-#!   SOURCE_NODE="1"
-#!   TARGET_NODE="2"
-#!   SOURCE_PORT_DESC="0"
-#!   TARGET_PORT_DESC="0"
 #! />
 #! </ATTR_LINKS>
 #! <SUBDOCUMENTS>
@@ -1272,10 +1272,10 @@ FACTORY_DEF * TeeFactory    FACTORY_NAME "CSV (CSV_1) Splitter"    INPUT FEATURE
 DEFAULT_MACRO WB_CURRENT_CONTEXT
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC CSV_CSV_1 TO POSTGRES __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>firstdate<comma>FirstDate<comma>geo_x<comma>Geo_X<comma>geo_y<comma>Geo_Y<comma>id<comma>Id<comma>lastdate<comma>LastDate<comma>year1<comma>Year1<comma>year1_sceneid<comma>Year1_sceneid<comma>year2<comma>Year2<comma>year2_sceneid<comma>Year2_sceneid<comma>year3<comma>Year3<comma>year3_sceneid<comma>Year3_sceneid<closeparen>,multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>especies.roadless_areas_validation_points_asia<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC CSV_CSV_1 TO POSTGRES __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>fid_<comma>system:index<comma>firstdate<comma>FirstDate<comma>geo_x<comma>Geo_X<comma>geo_y<comma>Geo_Y<comma>id<comma>Id<comma>lastdate<comma>LastDate<comma>year1<comma>Year1<comma>year1_sceneid<comma>Year1_sceneid<comma>year2<comma>Year2<comma>year2_sceneid<comma>Year2_sceneid<comma>year3<comma>Year3<comma>year3_sceneid<comma>Year3_sceneid<closeparen>,multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>especies.roadless_areas_validation_points_asia<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
 # -------------------------------------------------------------------------
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
 
 # -------------------------------------------------------------------------
-POSTGRES_1_DEF especies.roadless_areas_validation_points_asia   postgres_type                All   postgres_sql_key_columns     ""   postgres_drop_table          ""   postgres_truncate_table      ""   postgres_mode                ""   fme_feature_operation        INSERT   fme_table_handling           DROP_CREATE   postgres_create_with_oids    NO   postgres_vacuum_analyze      NO   postgres_allow_serial_writing NO   system:index                 int4   firstdate                    int4   geo_x                        numeric(7,3)   geo_y                        numeric(6,3)   id                           int4   lastdate                     int4   year1                        int2   year1_sceneid                varchar(42)   year2                        int2   year2_sceneid                varchar(42)   year3                        int2   year3_sceneid                varchar(42)   label                        int2   maxval_date                  varchar(20)   maxval_sceneid               varchar(42)   minval_date                  varchar(20)   minval_sceneid               varchar(42)
+POSTGRES_1_DEF especies.roadless_areas_validation_points_asia   postgres_type                All   postgres_sql_key_columns     ""   postgres_drop_table          ""   postgres_truncate_table      ""   postgres_mode                ""   fme_feature_operation        INSERT   fme_table_handling           DROP_CREATE   postgres_create_with_oids    NO   postgres_vacuum_analyze      YES   postgres_allow_serial_writing NO   fid_                         int4   firstdate                    int4   geo_x                        numeric(7,3)   geo_y                        numeric(6,3)   id                           int4   lastdate                     int4   year1                        int2   year1_sceneid                varchar(42)   year2                        int2   year2_sceneid                varchar(42)   year3                        int2   year3_sceneid                varchar(42)   label                        int2   maxval_date                  varchar(20)   maxval_sceneid               varchar(42)   minval_date                  varchar(20)   minval_sceneid               varchar(42)
