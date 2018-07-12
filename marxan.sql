@@ -4,6 +4,7 @@ CREATE SCHEMA marxan;
 -- comment the schema
 COMMENT ON SCHEMA marxan IS 'Schema for the Marxan Systematic Conservation Planning software';
 --create the bbox type to store the envelope of the country
+DROP TYPE IF EXISTS bbox;
 CREATE TYPE bbox AS (minx double precision, miny double precision, maxx double precision, maxy double precision);
 
 --===============================================================================================================================================================================================================
@@ -76,20 +77,16 @@ LANGUAGE plpgsql VOLATILE COST 100;
 -- Returns:				Creates a new feature class in PostGIS in the marxan namespace with the default name of <iso3>_hexagons_<areakm2>, e.g. png_hexagons_50. These features use the Cylindrical Equal Area projection 3410 - see here http://spatialreference.org/ref/epsg/3410/
 -- Required:		 The gaul_2015_simplified table
 
-DROP TYPE IF EXISTS bbox;
 DROP FUNCTION IF EXISTS marxan.hexagons(FLOAT, TEXT);
 
---create the bbox type to store the envelope of the country
-CREATE TYPE bbox AS (minx double precision, miny double precision, maxx double precision, maxy double precision);
-
 --create the function to create the hexagons from the hexagon grid and the country boundary with the passed iso3 code
-CREATE FUNCTION marxan.hexagons(areakm2 FLOAT, iso3 TEXT) RETURNS void AS
+CREATE FUNCTION marxan.hexagons(areakm2 FLOAT, iso3 TEXT) RETURNS TEXT AS
 
 $BODY$
   
 DECLARE
     bounds bbox;
-    tableName text DEFAULT $2 || '_hexagons_' || $1;
+    tableName text DEFAULT 'pu_' || $2 || '_hexagons_' || $1;
   
 BEGIN
   
@@ -100,7 +97,9 @@ BEGIN
   --get the min/max values for the country
   SELECT ST_XMin(geom),ST_YMin(geom),ST_XMax(geom),ST_YMax(geom) INTO bounds FROM (SELECT ST_Envelope(wkb_geometry) geom FROM gaul_2015_simplified g WHERE g.iso3 = $2) AS sub;
   
-  RAISE NOTICE '%', bounds;
+  IF bounds IS NULL THEN
+      RAISE EXCEPTION 'The iso3 code does not exist';
+  END IF;
   
   --write the hexagons into the grid table
   INSERT INTO marxan.grid(geometry) SELECT marxan.hex_grid(areakm2, bounds.minx, bounds.miny, bounds.maxx, bounds.maxy); 
@@ -117,9 +116,41 @@ BEGIN
   --drop the grid table
   DROP TABLE IF EXISTS marxan.grid;
   
+  --return the name of the feature class created
+  RETURN lower(tableName);
+  
   END
 $BODY$
 LANGUAGE plpgsql VOLATILE COST 100;
 
--- select marxan.hexagons(50.0, 'PNG');
+DROP TABLE IF EXISTS marxan.metadata_planning_units;
+CREATE TABLE marxan.metadata_planning_units (
+    feature_class_name text,
+    alias text,
+    description text,
+    creation_date time with time zone,
+    country_id integer,
+    aoi_id integer,
+    domain text,
+    _area double precision
+);
 
+--===============================================================================================================================================================================================================
+-- Description:		REST Services Function to create hexagonal grids - this calls the marxan.hexagons function
+-- Parameters:		areakm2 - the area of the grids to create in square kilometers
+--					iso3 - the country 3 letter code that you want to filter by
+-- Returns:			Creates a new feature class in PostGIS in the marxan namespace with the default name of <iso3>_hexagons_<areakm2>, e.g. png_hexagons_50. These features use the Cylindrical Equal Area projection 3410 - see here http://spatialreference.org/ref/epsg/3410/
+-- Required:		The gaul_2015_simplified table
+
+DROP FUNCTION IF EXISTS marxan.get_hexagons(double precision, text);
+CREATE OR REPLACE FUNCTION marxan.get_hexagons(IN areakm2 double precision,IN iso3 text)
+  RETURNS TEXT AS
+
+$BODY$  
+
+SELECT marxan.hexagons(areakm2,iso3);
+
+$BODY$
+LANGUAGE sql VOLATILE COST 100;
+
+COMMENT ON FUNCTION marxan.get_hexagons(double precision, text) IS 'Creates hexagons';
