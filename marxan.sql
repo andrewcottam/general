@@ -73,30 +73,34 @@ LANGUAGE plpgsql VOLATILE COST 100;
 --===============================================================================================================================================================================================================
 -- Description:		Function to create equal area hexagonal grids for hex binning filtered for a particular country. These can be used in further analyses, e.g. Marxan
 -- Parameters:		 areakm2 - the area of the grids to create in square kilometers
---								 iso3 - the country 3 letter code that you want to filter by
--- Returns:				Creates a new feature class in PostGIS in the marxan namespace with the default name of <iso3>_hexagons_<areakm2>, e.g. png_hexagons_50. These features use the Cylindrical Equal Area projection 3410 - see here http://spatialreference.org/ref/epsg/3410/
--- Required:		 The gaul_2015_simplified table
+--					iso3 - the country 3 letter code that you want to filter by
+-- Returns:			Creates a new feature class in PostGIS in the marxan namespace with the default name of <iso3>_hexagons_<areakm2>, e.g. png_hexagons_50. These features use the Cylindrical Equal Area projection 3410 - see here http://spatialreference.org/ref/epsg/3410/
+-- Required:		 The marxan.gaul_2015_simplified_1km and marxan.eez_simplified_1km tables
 
-DROP FUNCTION IF EXISTS marxan.hexagons(FLOAT, TEXT);
+DROP FUNCTION IF EXISTS marxan.hexagons(FLOAT, TEXT, TEXT);
 
 --create the function to create the hexagons from the hexagon grid and the country boundary with the passed iso3 code
-CREATE FUNCTION marxan.hexagons(areakm2 FLOAT, iso3 TEXT) RETURNS TEXT AS
+CREATE FUNCTION marxan.hexagons(areakm2 FLOAT, iso3 TEXT, domain TEXT) RETURNS TEXT AS
 
 $BODY$
   
 DECLARE
     bounds bbox;
-    tableName text DEFAULT 'pu_' || $2 || '_hexagons_' || $1;
+    tableName text DEFAULT 'pu_' || $2 || '_' || $3 || '_hexagons_' || $1;
   
 BEGIN
   
   --create the table that will hold the grids that will be intersected with the area of interest to create the planning units for the marxan analysis
   DROP TABLE IF EXISTS marxan.grid;
   CREATE TABLE marxan.grid (id SERIAL, geometry geometry);
-  
+
   --get the min/max values for the country
-  SELECT ST_XMin(geom),ST_YMin(geom),ST_XMax(geom),ST_YMax(geom) INTO bounds FROM (SELECT ST_Envelope(wkb_geometry) geom FROM gaul_2015_simplified g WHERE g.iso3 = $2) AS sub;
-  
+  IF $3 = 'terrestrial' THEN
+    SELECT ST_XMin(geom),ST_YMin(geom),ST_XMax(geom),ST_YMax(geom) INTO bounds FROM (SELECT ST_Envelope(wkb_geometry) geom FROM marxan.gaul_2015_simplified_1km g WHERE g.iso3 = $2) AS sub;
+  ELSE
+    SELECT ST_XMin(geom),ST_YMin(geom),ST_XMax(geom),ST_YMax(geom) INTO bounds FROM (SELECT ST_Envelope(wkb_geometry) geom FROM marxan.eez_simplified_1km g WHERE g.iso3 = $2) AS sub;
+  END IF;
+    
   IF bounds IS NULL THEN
       RAISE EXCEPTION 'The iso3 code does not exist';
   END IF;
@@ -107,13 +111,18 @@ BEGIN
   --add a spatial index
   CREATE INDEX idx01 ON marxan.grid USING GIST (geometry);
   
+  --create the output table
   EXECUTE 'DROP TABLE IF EXISTS marxan.' || tableName || ';';
   EXECUTE 'CREATE TABLE marxan.' || tableName || ' (id INTEGER, geometry geometry);';
   
-  -- intersect the grid with the country boundary and return the ids and geometries
-  EXECUTE 'INSERT INTO marxan.' || tableName || '(id, geometry) SELECT m.id, m.geometry FROM marxan.grid m, gaul_2015_simplified g WHERE ST_Intersects(ST_Transform(m.geometry, 4326), g.wkb_geometry) AND g.iso3 = ''' || $2 || ''';'; 
+  -- intersect the grid with the country boundary and write the results to the output table
+  IF $3 = 'terrestrial' THEN
+    EXECUTE 'INSERT INTO marxan.' || tableName || '(id, geometry) SELECT m.id, m.geometry FROM marxan.grid m, marxan.gaul_2015_simplified_1km g WHERE ST_Intersects(ST_Transform(m.geometry, 4326), g.wkb_geometry) AND g.iso3 = ''' || $2 || ''';'; 
+  ELSE
+    EXECUTE 'INSERT INTO marxan.' || tableName || '(id, geometry) SELECT m.id, m.geometry FROM marxan.grid m, marxan.eez_simplified_1km g WHERE ST_Intersects(ST_Transform(m.geometry, 4326), g.wkb_geometry) AND g.iso3 = ''' || $2 || ''';'; 
+  END IF;
 
-  --drop the grid table
+  --drop the temporary grid table
   DROP TABLE IF EXISTS marxan.grid;
   
   --return the name of the feature class created
@@ -140,7 +149,7 @@ CREATE TABLE marxan.metadata_planning_units (
 -- Parameters:		areakm2 - the area of the grids to create in square kilometers
 --					iso3 - the country 3 letter code that you want to filter by
 -- Returns:			Creates a new feature class in PostGIS in the marxan namespace with the default name of <iso3>_hexagons_<areakm2>, e.g. png_hexagons_50. These features use the Cylindrical Equal Area projection 3410 - see here http://spatialreference.org/ref/epsg/3410/
--- Required:		The gaul_2015_simplified table
+-- Required:		The marxan.gaul_2015_simplified_1km and marxan.eez_simplified_1km tables
 
 DROP FUNCTION IF EXISTS marxan.get_hexagons(double precision, text);
 CREATE OR REPLACE FUNCTION marxan.get_hexagons(IN areakm2 double precision,IN iso3 text)
