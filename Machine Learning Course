@@ -1,0 +1,47 @@
+Specialization overview
+Models -  which to use, e.g. linear regression, lasso, ridge
+Algorithms - how to tune the parameters, e.g. gradient descent
+Concepts - Loss functions, cross-validation, sparsity, overfitting, model selection
+
+
+GraphLab and SFrame are pretty cool!!
+Use apply() to apply a function to every row in an SFrame
+
+Foundations
+==========
+Linear Regression
+-------------------------
+In regression, the feature is the INDEPENDENT VARIABLE OR COVARIATE - e.g. number of rooms and is on the X axis - the Y axis is the response or DEPENDENT VARIABLE, e.g. cost
+Linear regression also includes higher order effects, e.g. quadratic equations and other order polynomials
+Training error - the residual sum of squares (RSS) just for the training data - this is what we want to try to MINIMISE to find our w hat
+Test error - is the RSS for the test data
+Training and test curves! Cool - saved a note
+W hat is the ideal parameters or REGRESSION COEFFICIENTS to minimise RSS
+Regression course WEEK 3 goes through ERROR, OVERFITTING AND PERFORMANCE
+3 different measures of error: TRAINING, GENERALISATION (i.e. how well the model generalises, or works, elsewhere on other data), TEST (error in the test data)
+As model complexity goes up, overfitting occurs and so the model will have HIGHER GENERALISATION error
+3 sources of error: NOISE (factors you havent put into your model, e.g. #of bathrooms), BIAS, VARIANCE - higher order polynomials vary a lot more with different training sets
+CROSS-VALIDATION is cool and allows you to use all data for training and validation even if you have not very much
+
+Classification
+--------------------
+A LINE separates a decision boundary in 2D, a PLANE in 3D and a HYPERPLANE in nD
+Accuracy: For k classes accuracy is 1/k for random guessing, e.g. for 3 classes I expect to get 0.25 accurate by guessing - WE WOULD HOPE TO DO BETTER THAN THIS
+Is a classifier with an accuracy of 90% good? Depends - In 2010, 90% of emails are spam so predicting every email is spam will give you 90% accuracy already - MAJORITY CLASS PREDICTION and CLASS IMBALANCE
+How much data does a model need to learn?  LEARNING CURVES - more data less test error
+Even with infinite data, test error will not go to zero - this is called the BIAS of the model - complex models tend to have LOWER BIAS
+In general, the more features your model has the more data you need to learn
+Receiver operating characteristic (ROC) curves - explore the false positives and negatives on a chart and set THRESHOLDS!!!! https://www.coursera.org/learn/ml-foundations/lecture/vZf2V/evaluating-a-classifier-the-roc-curve
+Decision trees - EARLY STOPPING and PRUNING can reduce overfitting
+BOOSTING - combines classifiers - most competitions on Kaggle win by using boosting - Random Forest uses boosting
+
+
+Clustering
+---------------
+k-means clustering
+UNSUPERVISED
+
+
+Recommender systems
+--------------------------------
+Use matrices and COOCCURRENCE MATRICES to look at when features occur together
