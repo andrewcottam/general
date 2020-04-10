@@ -22,6 +22,7 @@ Associate Expert for Wetlands International
 Species Distribution Modelling  
 GBIF  
 Map of natural/semi-natural habitats, restoration potential and ecological intactness  
+Myanmar have a big restoration programme
 REDD measurement, reporting and verification (MRV)  
 GEOBON Essential Biodiversity Variables  
 MAPOFLIFE  
@@ -36,7 +37,6 @@ Lillian Pintea - Jane Goodall
 - Used all Landsat 7 (not gap filled)  
 - Landsat 8 Thermal Band failed in Dec 2015  
 - Monthly data for 32 years for everywhere on the earth  
-
 
 ### THE TEAM  
 Spatial scientists/GIS Analysts  
@@ -150,10 +150,33 @@ GOOGLE CLOUD SQL - MANAGED POSTGIS DATABASE!!!
 CLOUD DATALAB INCLUDES ALL THE OTHER TOOLS! And you can set up with GEE by default  
 CLOUD MACHINE LEARNING ENGINE (MLE) - serverless machine learning environment with tensorflow  
 
-export CONTAINER_IMAGE_NAME=gcr.io/earthengine-project/datalab-ee:latest  
-export INSTANCE_NAME=datalab-ee-vm-acottam  
-datalab create --image-name $CONTAINER_IMAGE_NAME $INSTANCE_NAME  
 
-datalab create datalab-ee-vm-acottam  
-
-!conda install -y -c conda-forge earthengine-api  
+### PROJECTS
+UK Land Cover Map 2000
+Bat conservation
+Recorder 2000 Data Capture Software
+National Biodiversity Network
+CEH and BRC development work
+Ordnance Survey Mastermap importer
+Ramsar Convention Reporting (automated spreadsheets)
+ArcGIS Marxan Addin
+Wetland Bird Survey analysis and reporting
+Butterfly Monitoring Scheme analysis and website
+Seabird Monitoring Scheme analysis and publication
+UK Biodiversity Action Plan website
+Arcus Great Apes project
+GEOBON Essential Biodiversity Variables
+Global Islands Database
+WDPA System review
+Critical Site Network Tool (award winning)
+Circumpolar Biodiversity Monitoring Programme
+Marxan web
+Global Surface Water Dataset
+Digital Observatory for Protected Areas
+BIOPAMA Reference Information System - Policy | Target | Indicators
+Metadata harvesting for ecosystem service publications
+WDPA Version Checking tool
+Species Charisma project
+IUCN Red List analysis in Hadoop
+Roadless forest validation tool
+Xylella fastidiosa validation tool for olive trees
