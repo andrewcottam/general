@@ -21,4 +21,9 @@ P8210442.jpg
 PA180069.jpg  
 
 ### TheCottamsPhotos on the external drive
-Using Google Backup and Sync started at 15:55 on 10/04/2020
+Using Google Backup and Sync started at 15:55 on 10/04/2020  
+Total file size is: 206.18Gb  
+Started syncing at 16:04 on 10/04/2020  
+  Counting:  
+  1000  16:10  ->   ETA = 38*6  = 228 mins =  3 hours 48 mins   =   19:52 until it starts up upload  
+  
