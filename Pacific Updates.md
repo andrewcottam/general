@@ -58,3 +58,15 @@ Protected area plan including gap analysis and ecosystem service assessment
 ### Work Planning 2020-21
 - preparing the new workplan
 - support decision making in protected areas IS THE NEXT STAGE
+
+
+JRC Update for Pacific 16/04/2020
+- What is Amandas role? How long will she be there? What is the organogram?
+- What is Pauls handle on this?
+- Is SPREP open?
+- Has IMET been used in the Pacific at all? Or has it been asked? Its quantitative - why not?
+- Whats their plan for PIPAP until August?
+- Whats their vision for PIPAP especially beyond BIOPAMA?
+- Promote and communicate the live link to WDPA.
+- Can SPREP give us a demo on PIPAP and whats been done - from Tony, Vai, Bradley, Amanda. Snappy demo. More demo than presentation.
+- Can we share Bradleys tutorials on QGIS etc. ?
