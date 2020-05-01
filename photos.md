@@ -21,6 +21,7 @@ P8210442.jpg
 PA180069.jpg  
 
 ### TheCottamsPhotos on the external drive
+188,287,156,596 bytes (188.37 GB on disk) for 41,992 items on the masters folder
 Using Google Backup and Sync started at 15:55 on 10/04/2020  
 Total file size is: 206.18Gb  
 Started syncing at 16:04 on 10/04/2020  
@@ -29,6 +30,10 @@ Started syncing at 16:04 on 10/04/2020
 
   IMG_3540.JPG
 IMG_2489.MOV
+
+### DUPLICATES
+https://photos.google.com/search/flags/photo/AF1QipMMJCxTPhNjxiNkAxftlee6KUEYlisnMddFerMV
+https://photos.google.com/search/flags/photo/AF1QipMKHiZGQbSBeYjhGNs2Ub5WM1ZbBCFtlYhF-vV_
 
 TODO:
 - Edit the locations

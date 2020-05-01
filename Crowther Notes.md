@@ -181,4 +181,13 @@ IUCN Red List analysis in Hadoop
 Roadless forest validation tool
 Xylella fastidiosa validation tool for olive trees
 
-### NOTES
+### NOTES ON PYTHON COURSE
+- join lists with +
+- row of hyphens print(80*"-")
+- tuples use less memory than lists
+- sys.getsizeof() to get the size of memory for a variable
+- https://www.youtube.com/watch?v=NI26dqhs2Rk&list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&index=16 @3:43 using timeit
+- tuples much quicker than lists
+- Make a tuple without the parentheses, e.g. test = 1,2,3
+- https://www.youtube.com/watch?v=Qk0zUZW-U_M&list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&index=18 @5:41 memoisation!!!!
+- random.normalvariate creates random numbers from a normal Distribution
