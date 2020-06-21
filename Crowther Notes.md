@@ -191,3 +191,91 @@ Xylella fastidiosa validation tool for olive trees
 - Make a tuple without the parentheses, e.g. test = 1,2,3
 - https://www.youtube.com/watch?v=Qk0zUZW-U_M&list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&index=18 @5:41 memoisation!!!!
 - random.normalvariate creates random numbers from a normal Distribution
+
+### Notes for Google call
+#### Comments on Tom Elliots email to Google:
+- KEY THING IS WHAT ARE YOU MONITORING AND WHY???? WHAT ARE THE SPECIFIC AIMS?
+  - The purposes of monitoring:
+	  - to inform conservation action
+		- Natural Capital Accounting
+- Other required monitoring:
+  - Environmental/climatic variables
+	- Biomass
+	- Species composition
+- NDVI is not subject to changes in illumination as it is a ratio of bands (NIR - Red)/ (NIR + Red)
+- Resolution issue - can do spectral unmixing
+- Canopy recognition in Pine wood nematode - tree crown delineation - iterative region growing algorithm
+- Changes in tree cover around the globe at 3m resolution! I THINK NOT!
+  - Why use deep learning? You could use tree crown delineation easily
+  - Fantastically ambitious and unrealistic - what is the purpose?
+  - What do you mean by changes in tree cover? There are many definitions of what constitutes a forest
+	  - Also, are you looking to identify what species, e.g. it might be plantations
+  - Quarterly review of tree gain/loss at the global scale is impossible!
+	- Why globally? A single method for the whole world probably wont work
+	- What do you mean by trained on annual data/quarterly data?
+- Access and licensing of imagery
+  - Unlikely you can redistribute or even show imagery to others
+	- Simply derive new data from it
+-
+
+### Ideas
+#### Wireless sensor networks
+Measure temperature, humidity, wind etc across restoration sites at different heights etc.
+
+#### Site inventory
+
+#### Madingley model
+
+#### GEDI - Ecosystem LIDAR (Global Ecosystems Dynamics Investigation)  
+
+#### Canopy heights
+Nico Lang from ETH:
+Country-wide high-resolution vegetation height mapping with Sentinel-2
+https://medium.com/ecovisioneth/mapping-forest-structures-with-deep-learning-c1d3c1b41e4e
+
+#### Alert systems
+Opportunities for improving conservation early warning and alert systems
+https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1002/rse2.163
+
+### To call 01/06/2020
+- Is it still the CTO position?
+- Who will be evaluating? Who makes decisions at Restor?
+- When is the meeting?
+- Timescale  - is Restor up and running? Are these new people in Crowther Lab or Restor?
+
+
+### Crown detection and detecting growth
+- From Pieters paper:
+
+'the relatively coarse resolution of satellite compared to airborne
+images hinders the precise spatial alignment of images acquired on different dates, which is
+required to detect changes in individual tree crowns over time'
+
+' To provide a detailed record of individual coniferous tree crowns in the buffer
+zone, the area should be imaged in colour at 20 cm or higher spatial resolution from
+manned airborne platforms.'
+
+### Monitoring condition
+#### Indicators
+There are many band combinations that can be used to measure water stress, senescence, pigment changes etc.
+The thermal band is particularly useful for detecting water stress - in Sentinel 2 there is no thermal band
+Sentinel 3 has a thermal band but at 1Km - Landsat 8 is at 100m
+
+##### Thermal
+Infrared cameras can be used to do thermal monitoring
+
+##### Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)
+
+### Issues
+#### Image Resolution
+The phenomenon you are trying to measure is at a smaller scale than the imagery
+
+#### Geometric and orthorectification
+Need very precise DEM models to be able to get max accuracy
+
+### Greg Asner - Global Airborne Observatory - Arizona State University
+LIDAR Hyperspectral and Thermal
+Spectranomics Database
+http://asnerlab.org/projects/carnegie-airborne-observatory/
+
+### CLASlite

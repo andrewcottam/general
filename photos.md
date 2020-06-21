@@ -41,3 +41,23 @@ TODO:
 - Delete all selfies
 - Delete all screenshots
 - Rotate photos - Manage your library - Suggested rotations
+
+### Sources to Add
+- Lyndas old phone with pics from Orlas party & her bruises
+- Lyndas current phone
+- Olympus camera
+- In my gmail items from Noel, Jennifer, James etc.
+
+### Hard drive broken on 09/05/2020
+- The Western Digital Elements external 1TB hard drive is now making a clicking noise and is not opening on my MBA
+- Yesterday when I left it running overnight, it said something like 3 photos of 56000 or something - however, most of these were previews and other files
+- Checking how many photos have been uploaded to Google Photos using Google Dashboard:
+ - In Google search home page click on my icon and choose Manage your Google Account
+ - Click on Data & personalisation
+ - Scroll down to Go to Google Dashboard
+
+- GOOGLE PHOTOS: 35,397 photos 1,784 albums - most recent 1988/01/01 (backed up on 08/05/2020 at 17:58)
+  - After getting all the photos by API - it says 34,846
+- FLICKR: 37,263 photos (if you click on the The Cottams Family photo at the top)
+- EXTERNAL HARD DRIVE: 41,992 photos
+- MAC BOOK AIR: 7,772 photos

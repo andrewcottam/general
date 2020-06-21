@@ -1,0 +1,209 @@
+### Aims of project monitoring
+- To learn lessons
+- To inform actions (i.e. adaptive management)
+- To monitor progress against forest restoration goals
+	- Societal benefits, e.g. ecosystems services like carbon storage, watershed protection (e.g. you can measure turbidity)
+	- Ecosystem restoration
+	- Distinction between natural regeneration and regrowth enhanced by restoration efforts
+- Inform policy
+
+Neither of these will be achieved using satellite imagery! The method must be **robust** and **sensitive**.
+
+e.g. If all the seedlings die and other seeds in the seed bank grow you are measuring plant growth where your restoration has failed
+
+e.g. In Pine Wood Nematode study measuring condition requires 20cm resolution to see unhealthy pine trees
+
+**The phenomenon you are trying to measure is at a smaller scale than the imagery**
+
+### What you can use satellite imagery for
+#### Identifying medium to long term trends
+For example, phenology, vegetation indices, canopy heights. These can be used to develop alert systems.
+
+EXAMPLE: APAAT - alert system based on NDVI
+
+#### Observing dynamic processes
+For example, succession, gap dynamics, disturbance history
+
+### Ideal approach
+- Multiscale
+	- In-situ for early restoration
+	- Airborne/drone for 5+ years
+	- Satellite for 10+ years
+
+#### In-situ
+Wireless sensor networks - Measure temperature, humidity, wind etc across restoration sites at different heights etc.
+AA batteries last up to a year or solar (needs 3hr per day)
+
+#### Airborne/drone
+Best example is Greg Asners Global Airborne Observatory combining LIDAR, hyperspectral.
+
+##### Issues
+- Need a good DEM to do proper orthorectification
+
+#### Satellite
+##### Platforms
+###### GEDI - Ecosystem LIDAR (Global Ecosystems Dynamics Investigation)
+###### DigitalGlobe WorldView 3
+Has 8 bands:
+31cm pancromatic
+1.24m multispectral
+3.7m SWIR
+30m CAVIS (Clouds, Aerosols, Vapors, Ice, and Snow)
+<1 day revisit
+$20/Km2 for archived, $30 for tasking from landinfo.com
+
+##### Issues
+- Resolution - can use linear spectral unmixing but number of endmembers must be < no of bands
+- Cloudy imagery
+- Won't get beneath the canopy
+- Wobble means you can't get trends for the same trees
+- Mission continuity
+
+### Reference layers
+#### Land tenure
+#### DEM
+#### Water catchments
+
+### Specific indicators
+This will be different for different locations, aims etc.
+#### Canopy structure
+- GEDI to get height, 3d vegetation structure and biomass
+- Height: Nico Lang from ETH: Country-wide high-resolution vegetation height mapping with Sentinel-2
+https://medium.com/ecovisioneth/mapping-forest-structures-with-deep-learning-c1d3c1b41e4e
+
+#### Crown detection
+- Allows you to measure growth, count trees, estimate carbon and exclude understory vegetation or soils
+- Evaluation of alternative methods. There are lots. Heres one from a tree detection special issue in RS:
+https://www.mdpi.com/2072-4292/12/3/585/htm
+Region growing may not be the best for tropical forests/complex canopies.
+Different crown detection methods for different sites, ages etc!!!
+Using Multi-Spectral UAV Imagery to Extract Tree Crop Structural Properties and Assess Pruning Effect
+https://espace.library.uq.edu.au/data/UQ_84f5e65/UQ84f5e65_OA.pdf?Expires=1591262099&Key-Pair-Id=APKAJKNBJ4MJBJNC6NLQ&Signature=czKna~2tplK5VzHoNz~jJkXUhk4ARLZooR7eTXfNRBiWP91RfMS4Mayuehc0sHUfVkkZV4LHh6jkm9gCVWuw6s-1ipswDFWUKWwV9qtPNvTotOVd52mvsab6BqDnztr3Xd7BiBbfY2zAkfkj2EcccL3gUYRX~RskOi6FPfUzjipQyRsjAJ7mrcuZ2SKkhlSsSuqbpDBUEixIwUtZjxPmxOa6JroXeT3-b8H22fJGhh65V5uIn1-MkNl8KwatUovP-OwOcaAJUHyeyhF1veQFHDGmaZWjcfI8k7~Gb6QUgRlyxMNfOitObPyiZ4~VNF~uSEGwequ0jXNKVKvUp64TkA__
+Asner paper on detecting species in tropical forests:
+https://europepmc.org/article/pmc/pmc4496029
+
+- Use Hansen for identifying gaps in degraded forests and then do Tree Crown Delineation (TCD)
+
+#### Canopy growth
+- Ratios of various land covers over time, e.g. bare soil/vegetation, vegetation/canopies
+
+#### Crown height
+Point clouds
+- Airborne Laser Scanner (mentioned in Serge Wichs paper https://www.sciencedirect.com/science/article/pii/S0303243418303660)
+- Terrestrial Laser Scanner
+
+##### Issues
+- Resolution of the imagery
+- Method: region growing, segmentation, edge detection, deep learning etc.
+- Accurate DEM and georeferencing is needed to track individual crowns
+
+- From Pieters paper:
+
+'the relatively coarse resolution of satellite compared to airborne
+images hinders the precise spatial alignment of images acquired on different dates, which is
+required to detect changes in individual tree crowns over time'
+
+' To provide a detailed record of individual coniferous tree crowns in the buffer
+zone, the area should be imaged in colour at 20 cm or higher spatial resolution from
+manned airborne platforms.'
+
+#### Condition
+There are many band combinations that can be used to measure water stress, senescence, pigment changes etc.
+The thermal band is particularly useful for detecting water stress - in Sentinel 2 there is no thermal band
+Sentinel 3 has a thermal band but at 1Km - Landsat 8 is at 100m
+
+EXAMPLE: Site condition monitoring in the UK
+
+#### Plant growth
+##### NDVI
+
+##### Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)
+
+#### Proxy measures of restoration
+- Soil run off can be seen in rivers, e.g. ridge to reef
+
+### WRI Methodology
+- Always good to reuse
+- There is a bit of smoke and mirrors with Global Forest Watch
+- Is the offer in-kind contribution, an SLA, software etc.
+
+- Focused at the national level at SDGs
+
+#### Malawi
+Links to lots of SDG areas and includes mostly field-collected data
+
+#### Rwanda
+CollectEarth - downloadable tool or online tool crowd-sourcing technology for doing field survey work
+Field-collected data is potentially open to abuse
+Imagery not necessarily up-to-date
+
+#### Validation
+Need to be able to validate farmers have planted trees - compliance monitoring
+
+EXAMPLE: Copernicus Land Monitoring Services
+Hot spot monitoring
+Global Surface Water
+We set strict thresholds for the accuracy which they must meet
+
+
+### Ideas
+Training using historic events:
+- Have there already been restoration sites that we can train our satellite models on?
+- What about areas that have been naturally degraded through fires, tornados, landslides etc. - natural regeneration
+- Database of known past restoration projects - especially those that have failed -can we learn from these using imagery?
+
+### My ideas for restoration projects
+- Peat swamp forests of Sumatra and Kalimantan
+- Rosewood forests of Senegal
+- Mangrove forests of Vietnam after agent orange
+
+### Actual restoration projects (from Simeon)
+- ReforestTheTropics manage 2Km2 in Costa Rica
+- PlantForThePlanet have 225Km2 in Mexico with 1million trees planted each year
+- Fairventures worldwide 8km2 in borneo with 1million trees
+
+### Restoration potential of planting trees
+Article by the Crowther Lab about the potential in Science:
+https://science.sciencemag.org/content/365/6448/76
+Comment on “The global tree restoration potential” by Simon Lewis
+https://www.researchgate.net/publication/336628525_Comment_on_The_global_tree_restoration_potential
+
+
+THINGS FOR TODAY:
+- Site condition monitoring at JNCC: favourable, unfavourable or destroyed (for habitats)
+- Detecting tree crowns
+- GEDI
+- Monitoring plant growth
+- WRI method
+- Check tools are working
+- Reread comments from restoration people
+- Nico Langs paper
+- Pine wood nematode image Xylella fastidiosa what is it?
+- ESRI remote sensing and machine learning https://www.youtube.com/watch?v=Jd_e39zhvbI
+
+THE RESTOR FOUNDATION COULD OFFER A SERVICE FOR IDENTIFYING TREE CROWNS USING THEIR IMAGERY!
+
+pipeline
+- Capture how many seedlings planted etc
+- Buy commercial imagery like WorldView
+- Put into GEE or use ESRI Python API (Jupyter notebook), Javascript API etc.
+- Evaluation of different methods of TCD
+- Upload an image - it identifies the tree crowns, areas, species and the health (from NDVI)
+- Do this over time to get temporal profiles of area and health etc.
+
+
+
+Existing tools:
+These require an enormous amount of input:
+- Spatial Monitoring And Reporting Tool
+- CollectEarth - CitizenScience app with image sequence through time
+	- Big issue is that the imagery is free and undated!!!!
+- Geowiki
+- OpenStreetMap
+- GalaxyZoo
+- RSPB IBA Monitoring Tool
+
+
+Questions for the funders:
+- What are their guiding principles of Restor? Money or ecology?
+-
