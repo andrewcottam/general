@@ -169,21 +169,6 @@ MOU between SPREP and Ministry of Environment in Samoa
 #### Paul
 - Had to leave the call at 10am
 
-
-https://www.homegate.ch/rent/3000288576
-https://www.homegate.ch/rent/3000259245
-https://www.homegate.ch/rent/3000372904
-https://www.homegate.ch/rent/3000412049
-https://www.homegate.ch/rent/3000421325
-https://www.homegate.ch/rent/3000418712
-https://www.homegate.ch/rent/3000132997
-https://www.homegate.ch/rent/3000412072
-https://www.homegate.ch/rent/3000421383
-https://www.homegate.ch/rent/3000408812
-https://www.homegate.ch/rent/3000411583
-https://www.homegate.ch/rent/3000415589
-https://www.homegate.ch/rent/3000415950
-
 #### New SPREP contract
 Revist the specs
 Translating the objectives that we have into tasks and activities
@@ -196,4 +181,41 @@ We don't own PIPAP
 
 Ask Chiara again
 
-WRITE A MARXAN PROJECT DOCUMENT FOR THE MID-TERM REVIEW!!!!!!!!
+### Update call 15/07/2020
+Service contract - Vai would prefer a 3 year contract for GIS developer and less for Tony (a retainer) after talking to Paul Anderson and Julie
+Focus on GIS analysis for the next 3 years
+Paul suggested that SPREP could use money from elsewhere for Paul
+SPREP have another EU project on MEA support that relates to PAME - EU EMG PAME increase MEA Biodiversity in the region (CBD/CITES) - not sure when the project starts - probably mid 2021
+WDPA tools - still waiting for clarification on criteria for companies
+#### Paul
+Annual narrative report submitted to IUCN
+Mid-term review coming up and Vai/Amanda will be contacted by the consultant - Vai would like Paul to be involved
+Paul rated the countries that we have had engagement with and based on that the MTR team chose Samoa, Fiji and the Solomon Islands
+Main issue for MTR in Pacific is the Action Component
+SOPACA report still progressing slowly - Heather, Vai and Paul finishing the coverage and connectivity chapter - aiming for November (same time as rescheduled Pacific Nature Conservation Conference)
+#### Vai
+Information Platform - 1800 users from last Month
+4900 information resources on PIPAP
+559 subscribers to the newsletter
+Vai trying to track down people who have unsubscribed
+Reviewing documents for Protected Planet Report (at the request of UNEP WCMC)
+Review of PA data for Vanuatu (at the request of UNEP WCMC) - for Aug/Sep version of the
+Contributions for narrative report that Paul has written
+SPREP have received the server and are configuring it - discussing with Paul/Brad/Julie - should be ready in 2-3 days - installing GeoServer
+Organising training for RMI/FSM
+SPREP are considering a no-cost extension for 3 months with Brad because of Covid and they haven't been able to do a face-to-face wrap up
+ACTION: Find out from Chiara - we still have to pay the final payment
+#### Brad
+Contract ends at the end of August
+SPREP IT want the master GIS datasets on SPREP Server
+Separate BIOPAMA server PostGIS/Geoserver
+I need to request access to the server from Epele (cc Brad/Paul/Vai/Paul Anderson/Julie and Ainsof)
+Training for FSM will be virtual over 5 days from Aug 16th
+RMI training may be done in the same week
+PA and contextual data request made to all countries
+Finalising the data flow document for SPREP (from INFORM and other sources)
+Next month focus on FSM and potentially RMI training
+Linking data to the INFORM portal (10/14 WDPA datasets are linked in and will trickle into INFORM)
+Can we track how the training has benefitted the countries
+Indicator work will probably commence when the GIS server is configured and Brad can start
+ACTION: Me to go through the spreadsheet and update it with Notes where the indicators are already there

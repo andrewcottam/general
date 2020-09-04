@@ -1,11 +1,17 @@
 ### Aims of project monitoring
 - To learn lessons
 - To inform actions (i.e. adaptive management)
+Providing ecological insights
 - To monitor progress against forest restoration goals
 	- Societal benefits, e.g. ecosystems services like carbon storage, watershed protection (e.g. you can measure turbidity)
 	- Ecosystem restoration
 	- Distinction between natural regeneration and regrowth enhanced by restoration efforts
 - Inform policy
+- Compliance monitoring
+- Outcome monitoring, e.g. common standards monitoring
+- Straight ecological research that is valuable to the wider scientific community, e.g. like the Rothamsted Light Trap
+ - so that you can build ecological models and predict changes in the future, e.g. through climate change
+- To compare natural regeneration processes to assisted regeneration
 
 Neither of these will be achieved using satellite imagery! The method must be **robust** and **sensitive**.
 
@@ -31,8 +37,20 @@ For example, succession, gap dynamics, disturbance history
 	- Satellite for 10+ years
 
 #### In-situ
+TrekkerView from Google
+Phone apps
+Citizen Science
+	- Good will could be waning
 Wireless sensor networks - Measure temperature, humidity, wind etc across restoration sites at different heights etc.
 AA batteries last up to a year or solar (needs 3hr per day)
+ - In a mesh with ad-hoc networks - VERY LOW COST
+What gets deployed where will vary depending on the requirements
+
+- Need a network of pilot sites to do the following:
+ - Generate sample data/training data for ML algorithms
+ - Act as calibration sites for sensors
+ - Act as validation sites where we know what the land cover classes/parameters we are measuring
+ - Act as test sites for ML competitions, e.g. Kaggle
 
 #### Airborne/drone
 Best example is Greg Asners Global Airborne Observatory combining LIDAR, hyperspectral.
@@ -43,7 +61,7 @@ Best example is Greg Asners Global Airborne Observatory combining LIDAR, hypersp
 #### Satellite
 ##### Platforms
 ###### GEDI - Ecosystem LIDAR (Global Ecosystems Dynamics Investigation)
-###### DigitalGlobe WorldView 3
+###### DigitalGlobe (MAXAR) WorldView 3
 Has 8 bands:
 31cm pancromatic
 1.24m multispectral
@@ -51,6 +69,11 @@ Has 8 bands:
 30m CAVIS (Clouds, Aerosols, Vapors, Ice, and Snow)
 <1 day revisit
 $20/Km2 for archived, $30 for tasking from landinfo.com
+But 1.30pm - so no shadows to be able to detect individual crowns
+
+##### Planet PlanetScope
+##### Planet SkySat
+50cm Blue, Green, Red, Near Infrared, and Panchromatic
 
 ##### Issues
 - Resolution - can use linear spectral unmixing but number of endmembers must be < no of bands
@@ -63,6 +86,12 @@ $20/Km2 for archived, $30 for tasking from landinfo.com
 #### Land tenure
 #### DEM
 #### Water catchments
+
+### Key Performance indicators
+#### Get some parameters from hindcasting before the forest was degraded or logged
+So we can set these as targets to achieve, e.g. NDVI or species richness etc.
+Could use adjacent unlogged areas but there will be many variables different e.g. slope, aspect, topography which will affect e.g. height
+There could be lots of KPIs that measure progress against full restoration, e.g. structural restoration, Biodiversity restoration, soil restoration etc.
 
 ### Specific indicators
 This will be different for different locations, aims etc.
@@ -87,11 +116,18 @@ https://europepmc.org/article/pmc/pmc4496029
 #### Canopy growth
 - Ratios of various land covers over time, e.g. bare soil/vegetation, vegetation/canopies
 
+#### Canopy Temperature
+Can we collect mote data on temperature and see if it correlates with Landsat 7 thermal temperature? Do it when you do the Google Trekker transect!!! With a smartphone
+
 #### Crown height
 Point clouds
 - Airborne Laser Scanner (mentioned in Serge Wichs paper https://www.sciencedirect.com/science/article/pii/S0303243418303660)
 - Terrestrial Laser Scanner
 
+Can we use imagery from 2 times of the day to get the crown height based on shadow length?
+e.g. use Planet at 10am and WorldView at 1.30pm and look at the difference
+
+#### Sound monitoring can also be used to capture species !!!
 ##### Issues
 - Resolution of the imagery
 - Method: region growing, segmentation, edge detection, deep learning etc.
@@ -110,18 +146,25 @@ manned airborne platforms.'
 #### Condition
 There are many band combinations that can be used to measure water stress, senescence, pigment changes etc.
 The thermal band is particularly useful for detecting water stress - in Sentinel 2 there is no thermal band
-Sentinel 3 has a thermal band but at 1Km - Landsat 8 is at 100m
+Sentinel 3 has a thermal band but at 1Km - Landsat 8 is at 100m (TIRS) - L7 is 60m
+ASTER - Japanese 90m
+
 
 EXAMPLE: Site condition monitoring in the UK
 
 #### Plant growth
 ##### NDVI
+NIR and Red bands ratio
+You can also use a the Visible Atmospherically Resistant Index which is visible bands only - see https://learn.arcgis.com/en/projects/use-deep-learning-to-assess-palm-tree-health/#estimate-vegetation-health
 
 ##### Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)
 
 #### Proxy measures of restoration
 - Soil run off can be seen in rivers, e.g. ridge to reef
 
+### Data management
+#### Delivery
+e.g. through ESRIs IoT
 ### WRI Methodology
 - Always good to reuse
 - There is a bit of smoke and mirrors with Global Forest Watch
@@ -145,7 +188,6 @@ Hot spot monitoring
 Global Surface Water
 We set strict thresholds for the accuracy which they must meet
 
-
 ### Ideas
 Training using historic events:
 - Have there already been restoration sites that we can train our satellite models on?
@@ -159,7 +201,7 @@ Training using historic events:
 
 ### Actual restoration projects (from Simeon)
 - ReforestTheTropics manage 2Km2 in Costa Rica
-- PlantForThePlanet have 225Km2 in Mexico with 1million trees planted each year
+- PlantForThePlanet have 225Km2 in Mexico with 1million trees planted each year = 225*20 = $4500 for WorldView 3
 - Fairventures worldwide 8km2 in borneo with 1million trees
 
 ### Restoration potential of planting trees
@@ -207,3 +249,64 @@ These require an enormous amount of input:
 Questions for the funders:
 - What are their guiding principles of Restor? Money or ecology?
 -
+
+MARS Unit (Monitoring Agricultural Resources)
+7 million farmers
+170 million parcels (Land Parcel Identification System)
+Global Navigation Satellite System (GNSS) - Galileo GPS
+70+ Markers for compliance monitoring
+Field work to check 5% of sites are complying
+Farmers send photos
+
+Planet
+SkySat increased resolution from 72 to 50cm Blue, Green, Red, Near Infrared, and Panchromatic
+Now own RapidEye
+PlanetScope 3.7m
+Ground Control points
+DEM @ 30m->90m
+RapidEye 5m
+Top of Atmosphere Radiance is the DN values
+Top of Atmosphere Reflectance is 0-1 and removes fixed values
+Surface reflectance requires knowledge of atmospheric conditions present during the image acquisition time frame
+
+Premeeting for Google with Nick Cain 21/07/2020
+
+Meeting with Nick Cain from Google 24/07/2020 16:30
+Google Talent - The Google Fellowship
+Kaggle for Good
+
+
+Hyperspectral camera - $10K minimum
+$25K for https://www.cbrnetechindex.com/p/4148/Bay-Spec/OCI-UAV-Airborne-Hyperspectral-Camera
+Temperature and humidity are the key things to measure
+
+Colin:
+Dendrometers - from Colin look really interesting https://natkon.ch/products/
+Soil respiration autochambers???
+
+Johan:
+soil pH
+Handheld spectrophotometer
+Mini DNA sequencers!!
+multispectral drone
+
+Tom:
+Drones could be covered by other funding
+
+Me:
+StreetView Backpack probably has LIDAR - 3D RGB imagery - Brilliant for Augmented Reality with labels showing stored carbon etc growth rates
+GREAT FOR COMMUNICATION!!!
+StreetView ready products https://www.google.com/streetview/contacts-tools/products/
+
+mexico loads of data
+
+
+strategy and vision
+lcc
+treegain
+small scale monitoring
+vegetation indices
+history
+kaggle
+
+mapbiowas from brazil

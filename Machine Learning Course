@@ -16,14 +16,14 @@ Linear regression also includes higher order effects, e.g. quadratic equations a
 Training error - the residual sum of squares (RSS) just for the training data - this is what we want to try to MINIMISE to find our w hat
 Test error - is the RSS for the test data
 Training and test curves! Cool - saved a note
-W hat is the ideal parameters or REGRESSION COEFFICIENTS to minimise RSS
+What is the ideal parameters or REGRESSION COEFFICIENTS to minimise RSS
 Regression course WEEK 3 goes through ERROR, OVERFITTING AND PERFORMANCE
 3 different measures of error: TRAINING, GENERALISATION (i.e. how well the model generalises, or works, elsewhere on other data), TEST (error in the test data)
 As model complexity goes up, overfitting occurs and so the model will have HIGHER GENERALISATION error
 3 sources of error: NOISE (factors you havent put into your model, e.g. #of bathrooms), BIAS, VARIANCE - higher order polynomials vary a lot more with different training sets
 CROSS-VALIDATION is cool and allows you to use all data for training and validation even if you have not very much
 
-Classification
+Classification and logistic regression
 --------------------
 A LINE separates a decision boundary in 2D, a PLANE in 3D and a HYPERPLANE in nD
 Accuracy: For k classes accuracy is 1/k for random guessing, e.g. for 3 classes I expect to get 0.25 accurate by guessing - WE WOULD HOPE TO DO BETTER THAN THIS

@@ -62,7 +62,6 @@ Legal advisors
 Ecological forecasting  
 Species ecological niche modelling  
 
-
 ### MEASURING IMPACT  
 Return of keystone species  
 
@@ -237,45 +236,25 @@ https://medium.com/ecovisioneth/mapping-forest-structures-with-deep-learning-c1d
 Opportunities for improving conservation early warning and alert systems
 https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1002/rse2.163
 
-### To call 01/06/2020
+### Tom call 01/06/2020
 - Is it still the CTO position?
 - Who will be evaluating? Who makes decisions at Restor?
 - When is the meeting?
 - Timescale  - is Restor up and running? Are these new people in Crowther Lab or Restor?
 
+Tom has had a quote for €150k for 150000km2 of planet imagery
+Icesat - from NASA - Michael Schaepman from ETH RS Department - launched in 2018
+Forest structure, tree species diversity but mainly in Switzerland - they own a couple of planes and hyperspectral
+new relationship with Crowther and Restor - Dept of Geography
+Hyperspecral drone is about €6k
+10k restoration projects that we think are out there
+I estimated at €3-4k per project
 
-### Crown detection and detecting growth
-- From Pieters paper:
+Can we ask Google to license us the tech in StreetView (which includes LIDAR) to do ForestView:
+- Can measure vegetation growth in restoration plots
+- Can calibrate GEDI
+- Can be used elsewhere to estimate above ground standing carbon (Natural Capital Accounting)
+- Can we miniaturise it to do >10,000 restoration projects? Like StreetView Trekker
 
-'the relatively coarse resolution of satellite compared to airborne
-images hinders the precise spatial alignment of images acquired on different dates, which is
-required to detect changes in individual tree crowns over time'
-
-' To provide a detailed record of individual coniferous tree crowns in the buffer
-zone, the area should be imaged in colour at 20 cm or higher spatial resolution from
-manned airborne platforms.'
-
-### Monitoring condition
-#### Indicators
-There are many band combinations that can be used to measure water stress, senescence, pigment changes etc.
-The thermal band is particularly useful for detecting water stress - in Sentinel 2 there is no thermal band
-Sentinel 3 has a thermal band but at 1Km - Landsat 8 is at 100m
-
-##### Thermal
-Infrared cameras can be used to do thermal monitoring
-
-##### Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)
-
-### Issues
-#### Image Resolution
-The phenomenon you are trying to measure is at a smaller scale than the imagery
-
-#### Geometric and orthorectification
-Need very precise DEM models to be able to get max accuracy
-
-### Greg Asner - Global Airborne Observatory - Arizona State University
-LIDAR Hyperspectral and Thermal
-Spectranomics Database
-http://asnerlab.org/projects/carnegie-airborne-observatory/
-
-### CLASlite
+Using Street View Trekker
+Getting accurate assessments of above ground biomass in tropical forests can help calibrate GEDI for larger area estimates
