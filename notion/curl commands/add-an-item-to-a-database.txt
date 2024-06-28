@@ -1,0 +1,18 @@
+curl -X POST https://api.notion.com/v1/pages \
+  -H "Authorization: Bearer secret_wrzqXR0C5czfkd7wNchw3onb1gm03FuTcctBTscHrx3" \
+  -H "Content-Type: application/json" \
+  -H "Notion-Version: 2021-08-16" \
+  --data "{
+    \"parent\": { \"database_id\": \"251044d22d654e43a217fb1150b51600\" },
+    \"properties\": {
+      \"title\": {
+        \"title\": [
+          {
+            \"text\": {
+              \"content\": \"Yurts in Big Sur, California\"
+            }
+          }
+        ]
+      }
+    }
+  }"

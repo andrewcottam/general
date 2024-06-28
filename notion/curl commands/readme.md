@@ -1,0 +1,1 @@
+Folder containing curl commands to create new content in Notion through the API using my personal Notion account (credentials are Gmail SSO).

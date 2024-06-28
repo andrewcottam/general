@@ -1,0 +1,1 @@
+Files that interact with the Notion Api using the notion-sdk-py package from https://github.com/ramnes/notion-sdk-py
